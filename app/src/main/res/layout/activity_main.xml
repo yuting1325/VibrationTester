@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1a1a2e"
+    android:padding="24dp">
+
+    <!-- 标题 -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vibration Tester"
+        android:textColor="#e0e0e0"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- 不支持幅度控制时的警告 -->
+    <TextView
+        android:id="@+id/tvAmplitudeWarning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#ffcc00"
+        android:textSize="13sp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="6dp"/>
+
+    <!-- 幅度标签 -->
+    <TextView
+        android:id="@+id/tvAmplitudeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="振动幅度"
+        android:textColor="#a0a0c0"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/tvAmplitudeWarning"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <!-- 幅度数值显示 -->
+    <TextView
+        android:id="@+id/tvAmplitudeValue"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:text="128"
+        android:textColor="#ffffff"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tvAmplitudeWarning"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <!-- Slider -->
+    <SeekBar
+        android:id="@+id/seekBarAmplitude"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:progressTint="#7c7cff"
+        android:thumbTint="#ffffff"
+        app:layout_constraintTop_toBottomOf="@id/tvAmplitudeLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvAmplitudeValue"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="12dp"/>
+
+    <!-- 范围提示 -->
+    <TextView
+        android:id="@+id/tvRangeHint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="1                                                          255"
+        android:textColor="#606080"
+        android:textSize="11sp"
+        app:layout_constraintTop_toBottomOf="@id/seekBarAmplitude"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvAmplitudeValue"
+        android:layout_marginTop="2dp"/>
+
+    <!-- 分割线 -->
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#33334d"
+        app:layout_constraintTop_toBottomOf="@id/tvRangeHint"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <!-- 按钮区域标签 -->
+    <TextView
+        android:id="@+id/tvButtonLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试振动"
+        android:textColor="#a0a0c0"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Notification 按钮 -->
+    <Button
+        android:id="@+id/btnNotification"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:text="Notification"
+        android:textSize="16sp"
+        android:backgroundTint="#2d2d5e"
+        android:textColor="#ffffff"
+        android:stateListAnimator="@null"
+        app:layout_constraintTop_toBottomOf="@id/tvButtonLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnAlarm"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"/>
+
+    <!-- Alarm 按钮 -->
+    <Button
+        android:id="@+id/btnAlarm"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:text="Alarm"
+        android:textSize="16sp"
+        android:backgroundTint="#2d2d5e"
+        android:textColor="#ffffff"
+        android:stateListAnimator="@null"
+        app:layout_constraintTop_toBottomOf="@id/tvButtonLabel"
+        app:layout_constraintStart_toEndOf="@id/btnNotification"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <!-- 说明文字 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notification: 振动1秒  ·  Alarm: 持续振动直到再次点击"
+        android:textColor="#505070"
+        android:textSize="11sp"
+        app:layout_constraintTop_toBottomOf="@id/btnNotification"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
